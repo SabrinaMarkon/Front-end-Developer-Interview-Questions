@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "A list of helpful front-end related questions you can use to interview potential candidates, test yourself or completely ignore.",
   "scripts": {
+    "build": "eleventy --config=config/eleventy.config.js --pathprefix='Front-end-Developer-Interview-Questions/'",
+    "deploy": "sh ./config/deploy.sh",
     "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "contributors:generate": "all-contributors generate && cp .all-contributorsrc ./src/_data/contributors.json",
+    "start": "eleventy --config=config/eleventy.config.js --serve --port 9090 --quiet"
   },
   "repository": {
     "type": "git",
@@ -19,12 +22,33 @@
     "questions"
   ],
   "author": "H5BP",
+  "contributors": [
+    {
+      "name": "Cezar Augusto",
+      "email": "boss@cezaraugusto.net"
+    },
+    {
+      "name": "Darcy Clarke",
+      "email": "darcy@darcyclarke.me"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/h5bp/Front-end-Developer-Interview-Questions/issues"
   },
   "homepage": "https://github.com/h5bp/Front-end-Developer-Interview-Questions#readme",
   "devDependencies": {
-    "all-contributors-cli": "^4.10.1"
+    "@11ty/eleventy": "^0.11.0",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.4",
+    "all-contributors-cli": "^6.19.0",
+    "clean-css": "^4.2.3",
+    "html-minifier": "^4.0.0",
+    "luxon": "^1.25.0",
+    "markdown-it": "^12.0.0",
+    "markdown-it-anchor": "^6.0.0",
+    "uglify-es": "^3.3.9"
+  },
+  "resolutions": {
+    "axios": "0.18.1"
   }
 }
